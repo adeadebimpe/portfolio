@@ -29,8 +29,13 @@ body {
     "Helvetica Neue", sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 14px;
+}
+
+/* Only apply transition after initial load to prevent flash */
+html.loaded,
+html.loaded body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {

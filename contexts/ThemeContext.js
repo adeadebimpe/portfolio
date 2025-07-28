@@ -10,17 +10,30 @@ export const useTheme = () => {
   return context;
 };
 
-export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(false);
+// Helper function to get initial theme
+const getInitialTheme = () => {
+  if (typeof window === "undefined") return false;
 
-  useEffect(() => {
-    // Check for saved theme preference or default to light
+  try {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
+    return savedTheme === "dark" || (!savedTheme && prefersDark);
+  } catch (e) {
+    return false;
+  }
+};
 
-    setIsDark(savedTheme === "dark" || (!savedTheme && prefersDark));
+export const ThemeProvider = ({ children }) => {
+  const [isDark, setIsDark] = useState(getInitialTheme);
+
+  useEffect(() => {
+    // Sync state with what the script set on the document
+    const hasClass = document.documentElement.classList.contains("dark");
+    if (hasClass !== isDark) {
+      setIsDark(hasClass);
+    }
   }, []);
 
   useEffect(() => {
