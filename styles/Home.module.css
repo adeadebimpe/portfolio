@@ -1,6 +1,18 @@
 .main {
   min-height: 100vh;
   padding: 2rem 1rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Replace simple border with border-image for wider dot spacing */
@@ -13,11 +25,12 @@
   align-items: flex-start;
   padding: 2rem 1rem;
   position: relative;
+  animation: slideInUp 0.8s ease-out 0.05s both;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: 1.5gitrem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -25,6 +38,18 @@
   padding: 0;
   text-align: left;
   margin-bottom: 1rem;
+  animation: slideInUp 0.8s ease-out 0.1s both;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @media (min-width: 768px) {
   .hero h1 {
@@ -42,6 +67,23 @@
   text-align: left;
   margin-bottom: 1rem;
   color: var(--color-text-secondary);
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+.hero p:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.hero p:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.hero p:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.hero p:nth-child(6) {
+  animation-delay: 0.6s;
 }
 
 .availability {
@@ -70,18 +112,57 @@
   text-decoration: none;
   display: inline-block;
   margin-top: 1rem;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.8s ease-out 0.7s both;
+  transform-origin: center;
 }
 
 .cta:hover {
   background-color: var(--color-cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta:active {
+  transform: translateY(0);
+  transition: transform 0.1s ease;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.cta:hover::before {
+  left: 100%;
 }
 
 .footer {
   margin-top: auto;
   padding-top: 4rem;
   font-size: 0.875rem;
+  animation: slideInUp 0.8s ease-out 0.8s both;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer:hover {
+  opacity: 1;
 }
 
 .link {
@@ -90,9 +171,28 @@
   text-decoration-color: var(--color-text);
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
 }
 
 .link:hover {
   color: var(--color-text-secondary);
   text-decoration-color: var(--color-text-secondary);
+  transform: translateY(-1px);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-text);
+  transition: width 0.3s ease;
+}
+
+.link:hover::after {
+  width: 100%;
 }
