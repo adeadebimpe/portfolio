@@ -1,6 +1,7 @@
 :root {
   /* Light mode colors */
   --color-bg: #fff;
+  --color-bg-secondary: #f5f5f5;
   --color-text: #000;
   --color-text-secondary: #666;
   --color-border: #beb7b7;
@@ -12,6 +13,7 @@
 .dark {
   /* Dark mode colors */
   --color-bg: #000;
+  --color-bg-secondary: #222;
   --color-text: #fff;
   --color-text-secondary: #aaa;
   --color-border: #444;
