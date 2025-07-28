@@ -65,9 +65,15 @@ export default function Home() {
             </p>
             <button
               className={styles.cta}
-              onClick={() =>
-                (window.location.href = "mailto:bimpe@example.com")
-              }
+              onClick={() => {
+                const subject = encodeURIComponent("Case Study Request");
+                const body = encodeURIComponent(
+                  "Hi Adebimpe,\n\nI'd love to learn more about your design work and would appreciate seeing some case studies.\n\nBest regards"
+                );
+                window.location.href = `mailto:hi@adeadebimpe.com?subject=${subject}&body=${body}`;
+              }}
+              type="button"
+              aria-label="Send email to request case studies"
             >
               Request Case Studies
             </button>
