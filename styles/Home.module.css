@@ -1,0 +1,93 @@
+.main {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* Replace simple border with border-image for wider dot spacing */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.availability {
+  margin-top: 4rem;
+}
+
+.availability h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.availability p {
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.cta {
+  background-color: var(--color-cta-bg);
+  color: var(--color-cta-text);
+  padding: 0.75rem 1.5rem;
+  text-wrap: nowrap;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 30px;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.cta:hover {
+  background-color: var(--color-cta-hover);
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 4rem;
+  font-size: 0.875rem;
+}
+
+.link {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-text);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
+.link:hover {
+  color: var(--color-text-secondary);
+  text-decoration-color: var(--color-text-secondary);
+}

@@ -1,0 +1,25 @@
+.navbar {
+/*   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; */
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  pointer-events: auto;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.logo svg {
+  width: 30px;
+  height: 100%;
+}
